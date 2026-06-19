@@ -1,0 +1,25 @@
+# Build outputs
+10_Code/build/
+
+# IDE
+.vscode/
+**/.vscode/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+db.sqlite3
+.env
+
+# Django
+staticfiles/
+media/
+
+# Legacy/reference material
+00_Archive/
+20_UsefulDocuments/
+
+# Operating system
+.DS_Store
+Thumbs.db
