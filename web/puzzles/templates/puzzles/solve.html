@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sudoku Solver App</title>
+    </head>
+
+    <body>
+        <main>
+            <h1>Sudoku Solver App</h1>
+
+            <p>
+                Enter a sudoku puzzle in a sequential 81-digit format.
+                Use 0 for empty cells
+            </p>
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div>
+                    <label for="{{ form.puzzle.id_for_label }}">
+                        {{form.puzzle.label}}
+                    </label>
+
+                    {{form.puzzle}}
+                    {{form.puzzle.errors}}
+                </div>
+
+                <button type="submit">Solve puzzle</button>
+            </form>
+
+            {% if puzzle_record %}
+                <section>
+                    <h2>Solution</h2>
+
+                    {% if puzzle_record.has_multiple_solutions %}
+                        <p>
+                            This puzzle has multiple solutions.
+                            One of the multiple possible solutions is shown here.
+                        </p>
+                    {% endif %}
+
+                    <pre>
+                        {% for row in solution_rows %}{{row}}
+                        {% endfor %}
+                    </pre>
+                </section>
+            {% endif %}
+        </main>
+    </body>
+</html>
