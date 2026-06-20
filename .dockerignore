@@ -1,0 +1,11 @@
+.git/
+.vscode/
+**/.vscode/
+**/__pycache__/
+**/*.pyc
+10_Code/build/
+web/db.sqlite3
+00_Archive/
+20_UsefulDocuments/
+30_Puzzles/
+*.pdf
