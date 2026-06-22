@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sudoku #{{ puzzle_record.pk }}</title>
+    </head>
+
+    <body>
+        <main>
+            <a href="{% url 'puzzles:solve' %}">Back to solver</a>
+
+            <h1>Sudoku #{{ puzzle_record.pk }}</h1>
+
+            <p>
+                Solved at {{ puzzle_record.created_at|date:"Y-m-d H:i" }}
+            </p>
+
+            <h2>Input</h2>
+
+            <pre>
+                {% for row in input_rows %}{{row}}
+                {% endfor %}</pre>
+
+            <h2>Solution</h2>
+
+            {% if puzzle_record.has_multiple_solutions %}
+                <p>
+                    This puzzle has more than one possible solution, because it is underdefined.
+                    One of the possible solutions is shown.
+                </p>
+            {% endif %}
+
+            <pre>
+                {% for row in solution_rows %}{{row}}
+                {% endfor %}</pre>
+        </main>
+    </body>
+</html>

@@ -48,6 +48,27 @@
                     </pre>
                 </section>
             {% endif %}
+
+            <section>
+                <h2>Previous Puzzles</h2>
+                {% if puzzle_history %}
+                    <ul>
+                        {% for puzzle in puzzle_history %}
+                            <li>
+                                <a href="{% url 'puzzles:detail' puzzle.pk %}">
+                                    Sudoku #{{ puzzle.pk }}
+                                </a>
+
+                                <time datetime="{{ puzzle.created_at|date:'c' }}">
+                                    {{ puzzle.created_at|date:"Y-m-d H:i" }}
+                                </time>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Puzzle history is empty.</p>
+                {% endif %}
+            </section>
         </main>
     </body>
 </html>
