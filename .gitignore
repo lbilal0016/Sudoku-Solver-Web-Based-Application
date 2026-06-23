@@ -23,3 +23,7 @@ media/
 # Operating system
 .DS_Store
 Thumbs.db
+
+# Presentation
+SudokuSolverWebApp_Presentation.pptx
+Presentation3.pptx
