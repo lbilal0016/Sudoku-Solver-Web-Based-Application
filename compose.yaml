@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SQLITE_PATH: /data/db.sqlite3
+    volumes:
+      - sudoku_data:/data
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+
+volumes:
+  sudoku_data:
